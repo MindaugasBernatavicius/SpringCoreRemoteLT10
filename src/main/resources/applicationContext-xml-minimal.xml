@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       ">
+
+    <bean name="dbrepo" class="cf.mindaugas._03_spring_xml_minimal.repository.DatabaseCustomerRepositoryImpl" />
+    <bean name="hibrepo" class="cf.mindaugas._03_spring_xml_minimal.repository.HibernateCustomerRepositoryImpl" />
+
+    <!--Setter injection -->
+    <!--We describe this as: "wiring beans by name using setter injection" -->
+    <bean name="customerService" class="cf.mindaugas._03_spring_xml_minimal.service.CustomerServiceImpl" >
+        <!--<property name="customerRepository" ref="dbrepo"/>-->
+        <constructor-arg index="0" ref="hibrepo"/>
+        <constructor-arg index="1" value="Mindaugas"/>
+    </bean>
+
+</beans>

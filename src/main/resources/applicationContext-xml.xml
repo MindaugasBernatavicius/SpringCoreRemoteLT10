@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       ">
+
+    <!--<bean name="dbrepo" class="cf.mindaugas._04_spring_xml.repository.DatabaseCustomerRepositoryImpl" />-->
+    <bean name="hibrepo" class="cf.mindaugas._04_spring_xml.repository.HibernateCustomerRepositoryImpl" />
+
+    <!--<bean name="customerService" class="cf.mindaugas._04_spring_xml.service.CustomerServiceImpl" autowire="constructor" />-->
+    <!-- byName - uses name of the setter -->
+    <!--<bean name="customerService" class="cf.mindaugas._04_spring_xml.service.CustomerServiceImpl" autowire="byName" />-->
+
+    <bean name="customerService" class="cf.mindaugas._04_spring_xml.service.CustomerServiceImpl" autowire="byType" />
+
+</beans>
